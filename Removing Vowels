@@ -1,0 +1,27 @@
+# include <string>
+#include <iostream>
+using namespace std;
+string disemvowel(string str)
+{
+	const int size = str.length();
+	char rem_vowel[10] = { 'a','e','i','o','u','A','E','I','O','U' };
+	string changed;
+	int count = 0;
+	for (int i = 0; i < size; i++) {
+		for (int s = 0; s < 10; s++)
+			if (str.at(i) == rem_vowel[s])
+				count++;
+		if(count == 0)
+				changed += str.at(i);
+		count = 0;
+	}
+	return changed;
+}
+int main()
+{
+	string m;
+	cout << "Enter a string to remove vowels: ";
+	getline(cin,m);
+	cout << disemvowel(m);
+
+}
